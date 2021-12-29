@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django import forms
 from django.utils.html import mark_safe
-from .models import Staff, Tour, Blog, Category, Comment, Tag, User
+from .models import Staff, Tour, Blog, Category, Comment, Tag, User, Bill
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 
 
@@ -78,6 +78,10 @@ class TagAdmin(admin.ModelAdmin):
     search_fields = ['name']
 
 
+class BillAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'tour', 'total_price']
+    search_fields = ['name']
+
 # class ToursAppAdminSite(admin.AdminSite):
 #     site.header = 'HỆ THỐNG QUẢN LÝ TOUR DU LỊCH'
 #
@@ -93,3 +97,4 @@ admin.site.register(Blog, BlogAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Tag, TagAdmin)
+admin.site.register(Bill, BillAdmin)

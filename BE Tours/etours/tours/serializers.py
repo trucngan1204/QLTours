@@ -112,4 +112,4 @@ class RatingSerializer(ModelSerializer):
 class BillSerializer(ModelSerializer):
     class Meta:
         model = Bill
-        fields = []
+        fields = ["id", "user", "tour", "total_price"]

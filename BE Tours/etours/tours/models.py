@@ -101,7 +101,12 @@ class Rating(ActionBase):
 
 
 class Bill(models.Model):
-    tour = models.ForeignKey(Tour, on_delete=models.DO_NOTHING, null=True, related_name='bill')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='user')
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, null=True, related_name='bills')
+    price_adult = models.FloatField(null=True, blank=True, default=None)
+    price_child = models.FloatField(null=True, blank=True, default=None)
+    quantity = models.IntegerField(null=True, blank=True)
+    total_price = models.FloatField(null=True, blank=True, default=None)
 
 
 
